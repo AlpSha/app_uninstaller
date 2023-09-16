@@ -31,6 +31,21 @@ public class UninstallAppsPlugin implements FlutterPlugin, ActivityAware, Method
     }
 
     @Override
+    public void onAttachedToActivity(ActivityPluginBinding binding) {
+        activity = binding.getActivity();
+    }
+
+    @Override
+    public void onDetachedFromActivityForConfigChanges() {
+        activity = null;
+    }
+
+    @Override
+    public void onReattachedToActivityForConfigChanges(ActivityPluginBinding binding) {
+        activity = binding.getActivity();
+    }
+
+    @Override
     public void onDetachedFromActivity() {
         activity = null;
     }
